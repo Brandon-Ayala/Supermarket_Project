@@ -1,0 +1,19 @@
+branch,product_line,total_sales,total_gross_income
+A,"Electronic accessories",18317.11,872.24
+A,"Fashion accessories",16332.51,777.74
+A,"Food and beverages",17163.1,817.29
+A,"Health and beauty",12597.75,599.89
+A,"Home and lifestyle",22417.2,1067.49
+A,"Sports and travel",19372.7,922.51
+B,"Electronic accessories",17051.44,811.97
+B,"Fashion accessories",16413.32,781.59
+B,"Food and beverages",15214.89,724.52
+B,"Health and beauty",19980.66,951.46
+B,"Home and lifestyle",17549.16,835.67
+B,"Sports and travel",19988.2,951.82
+C,"Electronic accessories",18968.97,903.28
+C,"Fashion accessories",21560.07,1026.67
+C,"Food and beverages",23766.85,1131.75
+C,"Health and beauty",16615.33,791.21
+C,"Home and lifestyle",13895.55,661.69
+C,"Sports and travel",15761.93,750.57

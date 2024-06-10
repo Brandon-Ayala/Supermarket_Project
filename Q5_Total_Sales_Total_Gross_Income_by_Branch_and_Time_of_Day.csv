@@ -1,0 +1,13 @@
+branch,time_of_day,total_sales,total_gross_income
+A,Morning,35335.46,1682.64
+A,Afternoon,33888.44,1613.73
+A,Evening,29246.54,1392.69
+A,Closing,7729.93,368.09
+B,Morning,30260.34,1440.97
+B,Afternoon,32500.75,1547.65
+B,Evening,32584.84,1551.66
+B,Closing,10851.74,516.75
+C,Morning,31408.89,1495.66
+C,Afternoon,35556.71,1693.18
+C,Evening,30061.49,1431.5
+C,Closing,13541.62,644.84
