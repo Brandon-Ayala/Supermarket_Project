@@ -79,7 +79,7 @@ FROM sales
 GROUP BY branch;
 ```
 
-[Results as Image](Query_Results\Image\Q1_Total_Sales_Total_Gross_Income_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q1_Total_Sales_Total_Gross_Income_by_Branch.csv)
+[Results as Image](QueryResults\Image\Q1_Total_Sales_Total_Gross_Income_by_Branch.png) | [Results as CSV](QueryResults\CSV\Q1_Total_Sales_Total_Gross_Income_by_Branch.csv)
 
 ```
 -- What is the total sales and total gross income for each branch, broken down by gender?
@@ -93,7 +93,7 @@ GROUP BY branch, gender
 ORDER BY branch, gender;
 ```
 
-[Results as Image](Query_Results\Image\Q2_Total_Sales_Total_Gross_Income_by_Branch_and_Gender.png) | [Results as CSV](Query_Results\CSV\Q2_Total_Sales_Total_Gross_Income_by_Branch_and_Gender.csv)
+[Results as Image](QueryResults\Image\Q2_Total_Sales_Total_Gross_Income_by_Branch_and_Gender.png) | [Results as CSV](QueryResults\CSV\Q2_Total_Sales_Total_Gross_Income_by_Branch_and_Gender.csv)
 
 ```
 -- What is the total sales and total gross income for each branch, broken down by month?
@@ -107,7 +107,7 @@ GROUP BY branch, month
 ORDER BY branch, FIELD(month, 'January', 'February', 'March');
 ```
 
-[Results as Image](Query_Results\Image\Q3_Total_Sales_Total_Gross_Income_by_Branch_and_Month.png) | [Results as CSV](Query_Results\CSV\Q3_Total_Sales_Total_Gross_Income_by_Branch_and_Month.csv)
+[Results as Image](QueryResults\Image\Q3_Total_Sales_Total_Gross_Income_by_Branch_and_Month.png) | [Results as CSV](QueryResults\CSV\Q3_Total_Sales_Total_Gross_Income_by_Branch_and_Month.csv)
 
 ```
 -- What is the total sales and total gross income for each branch, broken down by weekday?
@@ -121,7 +121,7 @@ GROUP BY branch, weekday
 ORDER BY branch, FIELD(weekday, 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 ```
 
-[Results as Image](Query_Results\Image\Q4_Total_Sales_Total_Gross_Income_by_Branch_and_Weekday.png) | [Results as CSV](Query_Results\CSV\Q4_Total_Sales_Total_Gross_Income_by_Branch_and_Weekday.csv)
+[Results as Image](QueryResults\Image\Q4_Total_Sales_Total_Gross_Income_by_Branch_and_Weekday.png) | [Results as CSV](QueryResults\CSV\Q4_Total_Sales_Total_Gross_Income_by_Branch_and_Weekday.csv)
 
 ```
 -- What is the total sales and total gross income for each branch, broken down by time of day?
@@ -135,7 +135,7 @@ GROUP BY branch, time_of_day
 ORDER BY branch, FIELD(time_of_day, 'Morning', 'Afternoon', 'Evening', 'Closing');
 ```
 
-[Results as Image](Query_Results\Image\Q5_Total_Sales_Total_Gross_Income_by_Branch_and_Time_of_Day.png) | [Results as CSV](Query_Results\CSV\Q5_Total_Sales_Total_Gross_Income_by_Branch_and_Time_of_Day.csv)
+[Results as Image](QueryResults\Image\Q5_Total_Sales_Total_Gross_Income_by_Branch_and_Time_of_Day.png) | [Results as CSV](QueryResults\CSV\Q5_Total_Sales_Total_Gross_Income_by_Branch_and_Time_of_Day.csv)
 
 ```
 -- What is the total sales and total gross income from each product line?
@@ -147,7 +147,7 @@ FROM sales
 GROUP BY product_line;
 ```
 
-[Results as Image](Query_Results\Image\Q6_Total_Sales_Total_Gross_Income_by_Product_Line.png) | [Results as CSV](Query_Results\CSV\Q6_Total_Sales_Total_Gross_Income_by_Product_Line.csv)
+[Results as Image](QueryResults\Image\Q6_Total_Sales_Total_Gross_Income_by_Product_Line.png) | [Results as CSV](QueryResults\CSV\Q6_Total_Sales_Total_Gross_Income_by_Product_Line.csv)
 
 ```
 -- What is the total sales and total gross income for each branch, broken down by product line?
@@ -161,7 +161,7 @@ GROUP BY branch, product_line
 ORDER BY branch, product_line;
 ```
 
-[Results as Image](Query_Results\Image\Q7_Total_Sales_Total_Gross_Income_by_Branch_and_Product_Line.png) | [Results as CSV](Query_Results\CSV\Q7_Total_Sales_Total_Gross_Income_by_Branch_and_Product_Line.csv)
+[Results as Image](QueryResults\Image\Q7_Total_Sales_Total_Gross_Income_by_Branch_and_Product_Line.png) | [Results as CSV](QueryResults\CSV\Q7_Total_Sales_Total_Gross_Income_by_Branch_and_Product_Line.csv)
 
 ```
 -- Create a running total of sales and gross income for each branch by date.
@@ -184,7 +184,7 @@ FROM data
 ORDER BY branch, date;
 ```
 
-[Results as Image](Query_Results\Image\Q8_Total_Sales_Total_Gross_Income_Running_Total_by_Branch_and_Date.png) | [Results as CSV](Query_Results\CSV\Q8_Total_Sales_Total_Gross_Income_Running_Total_by_Branch_and_Date.csv)
+[Results as Image](QueryResults\Image\Q8_Total_Sales_Total_Gross_Income_Running_Total_by_Branch_and_Date.png) | [Results as CSV](QueryResults\CSV\Q8_Total_Sales_Total_Gross_Income_Running_Total_by_Branch_and_Date.csv)
 
 ```
 -- What is the average rating for each branch?
@@ -193,7 +193,7 @@ FROM sales
 GROUP BY branch;
 ```
 
-[Results as Image](Query_Results\Image\Q9_Average_Rating_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q9_Average_Rating_by_Branch.csv)
+[Results as Image](QueryResults\Image\Q9_Average_Rating_by_Branch.png) | [Results as CSV](QueryResults\CSV\Q9_Average_Rating_by_Branch.csv)
 
 ```
 -- How many perfect ratings does each branch have?
@@ -203,7 +203,7 @@ WHERE rating = 10
 GROUP BY branch;
 ```
 
-[Results as Image](Query_Results\Image\Q10_Perfect_Ratings_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q10_Perfect_Ratings_by_Branch.csv)
+[Results as Image](QueryResults\Image\Q10_Perfect_Ratings_by_Branch.png) | [Results as CSV](QueryResults\CSV\Q10_Perfect_Ratings_by_Branch.csv)
 
 ```
 -- What is the average order value for each branch?
@@ -212,7 +212,7 @@ FROM sales
 GROUP BY branch;
 ```
 
-[Results as Image](Query_Results\Image\Q11_AOV_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q11_AOV_by_Branch.csv)
+[Results as Image](QueryResults\Image\Q11_AOV_by_Branch.png) | [Results as CSV](QueryResults\CSV\Q11_AOV_by_Branch.csv)
 
 ```
 -- Which payment methods are the most popular?
@@ -224,7 +224,7 @@ FROM sales
 GROUP BY payment;
 ```
 
-[Results as Image](Query_Results\Image\Q12_Top_Payment_Methods_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q12_Top_Payment_Methods_by_Branch.csv)
+[Results as Image](QueryResults\Image\Q12_Top_Payment_Methods_by_Branch.png) | [Results as CSV](QueryResults\CSV\Q12_Top_Payment_Methods_by_Branch.csv)
 
 
 
