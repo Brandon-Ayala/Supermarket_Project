@@ -79,7 +79,7 @@ FROM sales
 GROUP BY branch;
 ```
 
-[Results as Image](QueryResults\Image\Q1_Total_Sales_Total_Gross_Income_by_Branch.png) | [Results as CSV](QueryResults\CSV\Q1_Total_Sales_Total_Gross_Income_by_Branch.csv)
+[Results as Image](QueryResults\Image\Q1-Total-Sales-Total-Gross-Income-by-Branch.png) | [Results as CSV](QueryResults\CSV\Q1_Total_Sales_Total_Gross_Income_by_Branch.csv)
 
 ```
 -- What is the total sales and total gross income for each branch, broken down by gender?
