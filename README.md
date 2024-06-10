@@ -77,7 +77,11 @@ ROUND(SUM(total),2) AS total_sales,
 ROUND(SUM(gross_income),2) AS total_gross_income
 FROM sales
 GROUP BY branch;
+```
 
+[Results as Image](Query_Results\Image\Q1_Total_Sales_Total_Gross_Income_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q1_Total_Sales_Total_Gross_Income_by_Branch.csv)
+
+```
 -- What is the total sales and total gross income for each branch, broken down by gender?
 SELECT
 branch,
@@ -87,7 +91,11 @@ ROUND(SUM(gross_income),2) AS total_gross_income
 FROM sales
 GROUP BY branch, gender
 ORDER BY branch, gender;
+```
 
+[Results as Image](Query_Results\Image\Q2_Total_Sales_Total_Gross_Income_by_Branch_and_Gender.png) | [Results as CSV](Query_Results\CSV\Q2_Total_Sales_Total_Gross_Income_by_Branch_and_Gender.csv)
+
+```
 -- What is the total sales and total gross income for each branch, broken down by month?
 SELECT
 branch,
@@ -97,7 +105,11 @@ ROUND(SUM(gross_income),2) AS total_gross_income
 FROM sales
 GROUP BY branch, month
 ORDER BY branch, FIELD(month, 'January', 'February', 'March');
+```
 
+[Results as Image](Query_Results\Image\Q3_Total_Sales_Total_Gross_Income_by_Branch_and_Month.png) | [Results as CSV](Query_Results\CSV\Q3_Total_Sales_Total_Gross_Income_by_Branch_and_Month.csv)
+
+```
 -- What is the total sales and total gross income for each branch, broken down by weekday?
 SELECT
 branch,
@@ -107,7 +119,11 @@ ROUND(SUM(gross_income),2) AS total_gross_income
 FROM sales
 GROUP BY branch, weekday
 ORDER BY branch, FIELD(weekday, 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+```
 
+[Results as Image](Query_Results\Image\Q4_Total_Sales_Total_Gross_Income_by_Branch_and_Weekday.png) | [Results as CSV](Query_Results\CSV\Q4_Total_Sales_Total_Gross_Income_by_Branch_and_Weekday.csv)
+
+```
 -- What is the total sales and total gross income for each branch, broken down by time of day?
 SELECT
 branch,
@@ -117,7 +133,11 @@ ROUND(SUM(gross_income),2) AS total_gross_income
 FROM sales
 GROUP BY branch, time_of_day
 ORDER BY branch, FIELD(time_of_day, 'Morning', 'Afternoon', 'Evening', 'Closing');
+```
 
+[Results as Image](Query_Results\Image\Q5_Total_Sales_Total_Gross_Income_by_Branch_and_Time_of_Day.png) | [Results as CSV](Query_Results\CSV\Q5_Total_Sales_Total_Gross_Income_by_Branch_and_Time_of_Day.csv)
+
+```
 -- What is the total sales and total gross income from each product line?
 SELECT
 product_line,
@@ -125,7 +145,11 @@ ROUND(SUM(total),2) AS total_sales,
 ROUND(SUM(gross_income),2) AS total_gross_income
 FROM sales
 GROUP BY product_line;
+```
 
+[Results as Image](Query_Results\Image\Q6_Total_Sales_Total_Gross_Income_by_Product_Line.png) | [Results as CSV](Query_Results\CSV\Q6_Total_Sales_Total_Gross_Income_by_Product_Line.csv)
+
+```
 -- What is the total sales and total gross income for each branch, broken down by product line?
 SELECT
 branch,
@@ -135,7 +159,11 @@ ROUND(SUM(gross_income),2) AS total_gross_income
 FROM sales
 GROUP BY branch, product_line
 ORDER BY branch, product_line;
+```
 
+[Results as Image](Query_Results\Image\Q7_Total_Sales_Total_Gross_Income_by_Branch_and_Product_Line.png) | [Results as CSV](Query_Results\CSV\Q7_Total_Sales_Total_Gross_Income_by_Branch_and_Product_Line.csv)
+
+```
 -- Create a running total of sales and gross income for each branch by date.
 WITH data AS (
 SELECT
@@ -154,23 +182,39 @@ SUM(total_sales) OVER (PARTITION BY branch order by date) AS cumulative_total_sa
 SUM(gross_income) OVER (PARTITION BY branch order by date) AS cumulative_gross_income
 FROM data
 ORDER BY branch, date;
+```
 
+[Results as Image](Query_Results\Image\Q8_Total_Sales_Total_Gross_Income_Running_Total_by_Branch_and_Date.png) | [Results as CSV](Query_Results\CSV\Q8_Total_Sales_Total_Gross_Income_Running_Total_by_Branch_and_Date.csv)
+
+```
 -- What is the average rating for each branch?
 SELECT branch, ROUND(AVG(rating),1) AS avg_rating
 FROM sales
 GROUP BY branch;
+```
 
+[Results as Image](Query_Results\Image\Q9_Average_Rating_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q9_Average_Rating_by_Branch.csv)
+
+```
 -- How many perfect ratings does each branch have?
 SELECT branch, COUNT(*) AS total_perfect_ratings
 FROM sales
 WHERE rating = 10
 GROUP BY branch;
+```
 
+[Results as Image](Query_Results\Image\Q10_Perfect_Ratings_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q10_Perfect_Ratings_by_Branch.csv)
+
+```
 -- What is the average order value for each branch?
 SELECT branch, ROUND(AVG(total),2) AS avg_order_value
 FROM sales
 GROUP BY branch;
+```
 
+[Results as Image](Query_Results\Image\Q11_AOV_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q11_AOV_by_Branch.csv)
+
+```
 -- Which payment methods are the most popular?
 SELECT
 payment,
@@ -178,8 +222,13 @@ COUNT(*) AS num_transactions,
 ROUND(SUM(total),2) AS total_sales
 FROM sales
 GROUP BY payment;
-
-/* The data used in this project comes from user Lovish Bansal on Kaggle.
-The link for this data is https://www.kaggle.com/datasets/lovishbansal123/sales-of-a-supermarket
-Use of this data is allowed under the Apache 2.0 License found here https://www.apache.org/licenses/LICENSE-2.0 */
 ```
+
+[Results as Image](Query_Results\Image\Q12_Top_Payment_Methods_by_Branch.png) | [Results as CSV](Query_Results\CSV\Q12_Top_Payment_Methods_by_Branch.csv)
+
+
+
+The data used in this project comes from user Lovish Bansal on Kaggle. 
+The link for this data is [here.](https://www.kaggle.com/datasets/lovishbansal123/sales-of-a-supermarket)
+Use of this data is allowed under the Apache 2.0 License found [here.](https://www.apache.org/licenses/LICENSE-2.0)
+
