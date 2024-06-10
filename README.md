@@ -6,7 +6,7 @@ The data used in this project comes from user Lovish Bansal on Kaggle. It repres
 
 My first step of any analysis is getting a look at the data to better understand what I'm working with.
 
-```
+```sql
 -- Get descriptive information about the table
 DESCRIBE sales;
 
@@ -35,7 +35,7 @@ OR rating IS NULL OR rating = '';
 
 When importing the data into MySQL Workbench the date column was a string datatype. I converted the date column to a date datatype.
 
-```
+```sql
 -- Convert the date column from string datatype to date datatype.
 ALTER TABLE sales ADD COLUMN new_date DATE; -- Add a new column with the date datatype
 UPDATE sales SET new_date = STR_TO_DATE(`date`, '%c/%e/%Y'); -- Update the new column with the converted values from the old column
@@ -45,7 +45,7 @@ ALTER TABLE sales CHANGE COLUMN new_date `date` DATE; -- Rename the new column t
 
 I also created some new columns that extracted the day name, month name, and the time of day from the new date column.
 
-```
+```sql
 -- Create a new column for the day of the week.
 ALTER TABLE sales ADD COLUMN weekday TEXT; 
 UPDATE sales SET weekday = DAYNAME(date); 
@@ -69,7 +69,7 @@ ELSE 'Something went wrong' END;
 
 I typically like to make comments about what question I'm trying to answer so that it is at the top of mind while writing queries. I also tend to start with broad questions and drill down into more detail (i.e. branch -> month -> week -> weekday -> time of day) while progressing through queries.
 
-```
+```sql
 -- What is the total sales and total gross income for each branch?
 SELECT
 branch,
@@ -81,7 +81,7 @@ GROUP BY branch;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q1_Total_Sales_Total_Gross_Income_by_Branch.csv)
 
-```
+```sql
 -- What is the total sales and total gross income for each branch, broken down by gender?
 SELECT
 branch,
@@ -95,7 +95,7 @@ ORDER BY branch, gender;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q2_Total_Sales_Total_Gross_Income_by_Branch_and_Gender.csv)
 
-```
+```sql
 -- What is the total sales and total gross income for each branch, broken down by month?
 SELECT
 branch,
@@ -109,7 +109,7 @@ ORDER BY branch, FIELD(month, 'January', 'February', 'March');
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q3_Total_Sales_Total_Gross_Income_by_Branch_and_Month.csv)
 
-```
+```sql
 -- What is the total sales and total gross income for each branch, broken down by weekday?
 SELECT
 branch,
@@ -123,7 +123,7 @@ ORDER BY branch, FIELD(weekday, 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thu
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q4_Total_Sales_Total_Gross_Income_by_Branch_and_Weekday.csv)
 
-```
+```sql
 -- What is the total sales and total gross income for each branch, broken down by time of day?
 SELECT
 branch,
@@ -137,7 +137,7 @@ ORDER BY branch, FIELD(time_of_day, 'Morning', 'Afternoon', 'Evening', 'Closing'
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q5_Total_Sales_Total_Gross_Income_by_Branch_and_Time_of_Day.csv)
 
-```
+```sql
 -- What is the total sales and total gross income from each product line?
 SELECT
 product_line,
@@ -149,7 +149,7 @@ GROUP BY product_line;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q6_Total_Sales_Total_Gross_Income_by_Product_Line.csv)
 
-```
+```sql
 -- What is the total sales and total gross income for each branch, broken down by product line?
 SELECT
 branch,
@@ -163,7 +163,7 @@ ORDER BY branch, product_line;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q7_Total_Sales_Total_Gross_Income_by_Branch_and_Product_Line.csv)
 
-```
+```sql
 -- Create a running total of sales and gross income for each branch by date.
 WITH data AS (
 SELECT
@@ -186,7 +186,7 @@ ORDER BY branch, date;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q8_Total_Sales_Total_Gross_Income_Running_Total_by_Branch_and_Date.csv)
 
-```
+```sql
 -- What is the average rating for each branch?
 SELECT branch, ROUND(AVG(rating),1) AS avg_rating
 FROM sales
@@ -195,7 +195,7 @@ GROUP BY branch;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q9_Average_Rating_by_Branch.csv)
 
-```
+```sql
 -- How many perfect ratings does each branch have?
 SELECT branch, COUNT(*) AS total_perfect_ratings
 FROM sales
@@ -205,7 +205,7 @@ GROUP BY branch;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q10_Perfect_Ratings_by_Branch.csv)
 
-```
+```sql
 -- What is the average order value for each branch?
 SELECT branch, ROUND(AVG(total),2) AS avg_order_value
 FROM sales
@@ -214,7 +214,7 @@ GROUP BY branch;
 
 [Results](https://github.com/Brandon-Ayala/Supermarket_Project/blob/b6d7d2e649540270e8b39c0184516b29d8e36833/QueryResults/CSV/Q11_AOV_by_Branch.csv)
 
-```
+```sql
 -- Which payment methods are the most popular?
 SELECT
 payment,
